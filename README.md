@@ -6,8 +6,6 @@
 
 A lightweight Chrome extension for capturing screenshots and annotating with ease.
 
-<img src="icons/modern-logo.svg?v=final" width="128" height="128" alt="ZDFShot Modern Logo">
-
 ## Features
 
 - **Multiple Capture Modes**
