@@ -6,6 +6,8 @@
 
 A lightweight Chrome extension for capturing screenshots and annotating with ease.
 
+<img src="icons/logo-clean.png" width="64" height="64">
+
 ## Features
 
 - **Multiple Capture Modes**
