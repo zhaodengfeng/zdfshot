@@ -6,7 +6,7 @@
 
 A lightweight Chrome extension for capturing screenshots and annotating with ease.
 
-![ZDFShot Logo](icons/icon128.png)
+![ZDFShot Logo](icons/logo.png)
 
 ## Features
 
