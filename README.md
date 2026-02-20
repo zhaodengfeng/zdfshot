@@ -1,124 +1,123 @@
-# ZDFShot - Chrome 截图标注插件
+# ZDFShot
 
-快速截图 + 便捷标注编辑工具
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/zhaodengfeng/zdfshot)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Chrome Extension](https://img.shields.io/badge/chrome-extension-brightgreen.svg)](https://chrome.google.com/webstore)
 
-## 功能特性
+A lightweight Chrome extension for capturing screenshots and annotating with ease.
 
-- 📸 **多种截图模式**：
-  - 可见区域截图
-  - 选择区域截图
-  - 🔥 **整页滚动截图**（自动拼接长网页）
-  
-- ✏️ **丰富标注工具**（12种）：
-  - 矩形框选（支持填充模式）
-  - 圆角矩形
-  - 圆形标记（支持填充）
-  - 🔺 **三角形**
-  - ⭐ **星形**
-  - 箭头指示
-  - 直线绘制
-  - 自由画笔
-  - 文字标注
-  - 马赛克模糊
-  - 高斯模糊（柔和隐私保护）
-  
-- 🎯 **图层面板**：
-  - 右侧显示所有标注列表
-  - 点击选中 / 显示隐藏 / 删除
-  - 实时同步编辑状态
-  
-- ✂️ **图片裁剪**：
-  - 编辑前裁剪截图区域
-  - 拖拽选择，一键确认
-  
-- 💾 **自动保存**：
-  - 每30秒自动保存草稿
-  - 关闭页面前自动保存
-  - 下次打开自动恢复
-  - 7天后自动清理过期草稿
-  
-- 🌐 **多语言支持**：
-  - 简体中文 / English 一键切换
-  - 自动检测浏览器语言
-  - 所有界面元素完整翻译
-  
-- 🎨 **双主题风格**：
-  - 深色主题（GitHub Dark 风格）
-  - 浅色主题（GitHub Light 风格）
-  - 一键切换，自动记忆
-  
-- 🎨 **样式自定义**：
-  - 7色快速选择 + 取色器
-  - 线条粗细 1-20px
-  - 填充/描边一键切换
-  
-- ↩️ **撤销/重做**：50步历史记录
+![Screenshot](icons/icon128.png)
 
-## 安装方法
+## Features
 
-### 开发者模式安装
+- **Multiple Capture Modes**
+  - Visible area capture
+  - Area selection capture
+  - Full-page scrolling capture (auto-stitching for long pages)
 
-1. 打开 Chrome 扩展管理页面：`chrome://extensions/`
-2. 开启右上角「开发者模式」
-3. 点击「加载已解压的扩展程序」
-4. 选择 `zdfshot` 文件夹
+- **12 Annotation Tools**
+  - Rectangle / Rounded rectangle / Ellipse
+  - Triangle / Star / Arrow / Line
+  - Freehand pen / Text
+  - Mosaic / Gaussian blur
+  - Fill/stroke toggle
 
-## 快捷键
+- **Layer Panel**
+  - Visual list of all annotations
+  - Show/hide toggle
+  - Click to select, delete individual items
 
-### 全局快捷键
-- `Alt + Shift + S` - 快速截图
+- **Image Editing**
+  - Crop before editing
+  - 50-step undo/redo history
+  - Auto-save drafts (30s interval, 7-day retention)
 
-### 工具快捷键
+- **UI/UX**
+  - Bilingual (English/Chinese)
+  - Dual themes (GitHub Dark/Light)
+  - Keyboard shortcuts for all tools
 
-| 按键 | 工具 |
-|------|------|
-| V | 选择 |
-| R | 矩形 |
-| U | 圆角矩形 |
-| E | 圆形 |
-| G | 三角形 |
-| S | 星形 |
-| A | 箭头 |
-| L | 直线 |
-| P | 画笔 |
-| T | 文字 |
-| M | 马赛克 |
-| B | 高斯模糊 |
-| Delete | 删除选中 |
+## Installation
 
-### 操作快捷键
+### Developer Mode
 
-| 快捷键 | 功能 |
-|--------|------|
-| Ctrl + Z | 撤销 |
-| Ctrl + Y / Ctrl+Shift+Z | 重做 |
-| Ctrl + S | 保存 |
-| ESC | 取消当前操作 |
+1. Open Chrome Extensions: `chrome://extensions/`
+2. Enable **Developer mode** (top-right toggle)
+3. Click **Load unpacked**
+4. Select the `zdfshot` folder
 
-## 文件结构
+### From Chrome Web Store
+
+*Coming soon*
+
+## Usage
+
+### Global Shortcut
+
+| Shortcut | Action |
+|----------|--------|
+| `Alt + Shift + S` | Quick screenshot |
+
+### Tool Shortcuts
+
+| Key | Tool |
+|-----|------|
+| V | Select |
+| R | Rectangle |
+| U | Rounded Rect |
+| E | Ellipse |
+| G | Triangle |
+| S | Star |
+| A | Arrow |
+| L | Line |
+| P | Pen |
+| T | Text |
+| M | Mosaic |
+| B | Blur |
+| Delete | Delete selected |
+
+### Action Shortcuts
+
+| Shortcut | Action |
+|----------|--------|
+| Ctrl + Z | Undo |
+| Ctrl + Y / Ctrl+Shift+Z | Redo |
+| Ctrl + S | Save image |
+| ESC | Cancel current operation |
+
+## Project Structure
 
 ```
 zdfshot/
-├── manifest.json      # 插件配置
-├── popup.html         # 弹出窗口
-├── popup.js           # 弹出窗口逻辑
-├── background.js      # 后台服务
-├── content.js         # 页面注入脚本（含滚动截图）
-├── content.css        # 选区遮罩样式
-├── editor.html        # 图片编辑器（含图层面板、裁剪）
-├── editor.css         # 编辑器样式
-├── editor.js          # 编辑器核心逻辑（含自动保存）
-└── icons/             # 图标
-    └── icon.svg
+├── manifest.json          # Extension manifest
+├── background.js          # Service worker
+├── popup.{html,js}        # Popup UI
+├── content.{js,css}       # Content script (selection overlay, full-page capture)
+├── editor.{html,css,js}   # Annotation editor
+├── i18n.js                # Internationalization
+└── icons/                 # Extension icons
 ```
 
-## 技术亮点
+## Tech Stack
 
-- **滚动长截图**：自动隐藏固定元素，分段截图拼接
-- **图层系统**：Map 存储可见性状态，支持显示/隐藏
-- **自动保存**：chrome.storage.local 持久化草稿
-- **现代 UI**：CSS Variables + Flexbox + 微交互动画
+- **Manifest V3** — Latest Chrome extension API
+- **Canvas API** — Image manipulation & annotations
+- **CSS Variables** — Dynamic theming
+- **chrome.storage** — Draft persistence
+
+## Browser Support
+
+| Browser | Support |
+|---------|---------|
+| Chrome | ✅ 88+ |
+| Edge | ✅ 88+ |
+| Opera | ✅ 74+ |
+| Firefox | ❌ (Manifest V2 only) |
+
+## Contributing
+
+Issues and PRs welcome.
 
 ## License
 
-MIT
+[MIT](LICENSE)
