@@ -120,4 +120,4 @@ Issues and PRs welcome.
 
 ## License
 
-[MIT](LICENSE)
+[GPL-3.0](LICENSE)
