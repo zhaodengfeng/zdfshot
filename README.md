@@ -6,9 +6,7 @@
 
 A lightweight Chrome extension for capturing screenshots and annotating with ease.
 
-<div align="center" style="background-color: white; padding: 20px; border-radius: 12px; display: inline-block;">
-  <img src="icons/icon128.png" alt="ZDFShot Logo" width="64" height="64">
-</div>
+![ZDFShot Logo](icons/icon128.png)
 
 ## Features
 
