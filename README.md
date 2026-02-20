@@ -1,7 +1,7 @@
 # ZDFShot
 
 [![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/zhaodengfeng/zdfshot)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
 [![Chrome Extension](https://img.shields.io/badge/chrome-extension-brightgreen.svg)](https://chrome.google.com/webstore)
 
 A lightweight Chrome extension for capturing screenshots and annotating with ease.
