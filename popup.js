@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // 显示版本号
+  const manifest = chrome.runtime.getManifest();
+  const versionEl = document.getElementById('versionDisplay');
+  if (versionEl && manifest?.version) {
+    versionEl.textContent = 'v' + manifest.version;
+  }
+
   // 检查当前页面是否可用
   checkCurrentTab();
 
