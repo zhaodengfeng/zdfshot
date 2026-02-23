@@ -1398,6 +1398,8 @@ class Editor {
     if (this.isCropping) return;
     this.isCropping = true;
     this.cropOverlay.classList.add('active');
+    const cropHint = this.cropOverlay.querySelector('.crop-hint');
+    if (cropHint) cropHint.style.display = 'block';
 
     const getBounds = () => {
       const canvasRect = this.canvas.getBoundingClientRect();
@@ -1427,6 +1429,8 @@ class Editor {
     this.cropSelection.style.display = 'block';
     this.cropSelection.classList.add('active');
     this.cropActions.classList.add('active');
+    const cropHint2 = this.cropOverlay.querySelector('.crop-hint');
+    if (cropHint2) cropHint2.style.display = 'none';
 
     const minSize = 20;
 
@@ -1534,6 +1538,10 @@ class Editor {
     // ESC 取消
     this.cropKeyHandler = (e) => {
       if (e.key === 'Escape') {
+        this.endCrop();
+      }
+      if (e.key === 'Enter') {
+        this.applyCrop();
         this.endCrop();
       }
     };
