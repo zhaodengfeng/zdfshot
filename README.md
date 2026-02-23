@@ -127,6 +127,10 @@ zdfshot/
 
 Issues and PRs welcome.
 
+## Privacy Policy
+
+- https://github.com/zhaodengfeng/zdfshot/blob/main/PRIVACY.md
+
 ## License
 
 [GPL-3.0](LICENSE)
