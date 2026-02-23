@@ -541,17 +541,23 @@ body {
 .crop-handle-w  { left: -7px; top: calc(50% - 6px); cursor: ew-resize; }
 
 .crop-size-label {
+  display: none;
+}
+
+.crop-live-size {
   position: absolute;
   left: 8px;
-  bottom: 8px;
+  top: 8px;
   padding: 3px 8px;
   font-size: 12px;
   line-height: 1.2;
   color: #fff;
-  background: rgba(0, 0, 0, 0.58);
+  background: rgba(0, 0, 0, 0.68);
   border-radius: 6px;
   pointer-events: none;
   user-select: none;
+  display: none;
+  z-index: 51;
 }
 
 .crop-actions {

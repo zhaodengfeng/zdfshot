@@ -1432,6 +1432,8 @@ class Editor {
     this.cropActions.classList.remove('active');
     const cropHint2 = this.cropOverlay.querySelector('.crop-hint');
     if (cropHint2) cropHint2.style.display = 'none';
+    const cropLiveSize = document.getElementById('cropLiveSize');
+    if (cropLiveSize) cropLiveSize.style.display = 'block';
 
     const minSize = 20;
 
@@ -1445,13 +1447,19 @@ class Editor {
       this.cropSelection.style.height = b.h + 'px';
 
       // 左下角实时显示裁剪尺寸（图片像素）
+      const scaleX = this.canvas.width / Math.max(1, bounds.canvasW);
+      const scaleY = this.canvas.height / Math.max(1, bounds.canvasH);
+      const pxW = Math.max(1, Math.round(b.w * scaleX));
+      const pxH = Math.max(1, Math.round(b.h * scaleY));
+
       const sizeLabel = document.getElementById('cropSizeLabel');
-      if (sizeLabel) {
-        const scaleX = this.canvas.width / Math.max(1, bounds.canvasW);
-        const scaleY = this.canvas.height / Math.max(1, bounds.canvasH);
-        const pxW = Math.max(1, Math.round(b.w * scaleX));
-        const pxH = Math.max(1, Math.round(b.h * scaleY));
-        sizeLabel.textContent = `${pxW} × ${pxH}`;
+      if (sizeLabel) sizeLabel.textContent = `${pxW} × ${pxH}`;
+
+      const cropLiveSize = document.getElementById('cropLiveSize');
+      if (cropLiveSize) {
+        cropLiveSize.textContent = `${pxW} × ${pxH}`;
+        cropLiveSize.style.left = `${Math.round(bounds.canvasOffsetX + b.x + 6)}px`;
+        cropLiveSize.style.top = `${Math.round(bounds.canvasOffsetY + b.y + b.h + 8)}px`;
       }
     };
 
@@ -1621,6 +1629,8 @@ class Editor {
     this.cropOverlay.classList.remove('active');
     this.cropSelection.classList.remove('active');
     this.cropActions.classList.remove('active');
+    const cropLiveSize = document.getElementById('cropLiveSize');
+    if (cropLiveSize) cropLiveSize.style.display = 'none';
     // 使用实例属性确保无论何种退出路径都能清理干净
     if (this._cropMouseDownHandler) {
       this.cropSelection.removeEventListener('mousedown', this._cropMouseDownHandler);
