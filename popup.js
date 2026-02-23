@@ -253,6 +253,13 @@ async function ensureContentScriptInjected(tabId) {
       target: { tabId: tabId },
       files: ['content.js']
     });
+    // 注入样式（若重复注入会被浏览器去重/覆盖，不影响）
+    try {
+      await chrome.scripting.insertCSS({
+        target: { tabId: tabId },
+        files: ['content.css']
+      });
+    } catch (_) {}
     // 等待一小段时间确保脚本加载
     await new Promise(resolve => setTimeout(resolve, 100));
   }
