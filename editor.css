@@ -540,6 +540,20 @@ body {
 .crop-handle-sw { left: -7px; bottom: -7px; cursor: nesw-resize; }
 .crop-handle-w  { left: -7px; top: calc(50% - 6px); cursor: ew-resize; }
 
+.crop-size-label {
+  position: absolute;
+  left: 8px;
+  bottom: 8px;
+  padding: 3px 8px;
+  font-size: 12px;
+  line-height: 1.2;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.58);
+  border-radius: 6px;
+  pointer-events: none;
+  user-select: none;
+}
+
 .crop-actions {
   position: absolute;
   bottom: 20px;

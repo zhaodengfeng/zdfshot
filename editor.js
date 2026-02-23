@@ -1415,12 +1415,12 @@ class Editor {
     // 进入裁剪时默认整张图选中
     this._cropBoxCss = { x: 0, y: 0, w: initBounds.canvasW, h: initBounds.canvasH };
 
-    // 初始化 8 个控制点（四角 + 四边）
+    // 初始化 8 个控制点（四角 + 四边）+ 尺寸标签
     if (!this.cropSelection.dataset.handlesInited) {
       const dirs = ['nw', 'n', 'ne', 'e', 'se', 's', 'sw', 'w'];
       this.cropSelection.innerHTML = dirs
         .map((dir) => `<div class="crop-handle crop-handle-${dir}" data-dir="${dir}"></div>`)
-        .join('');
+        .join('') + '<div class="crop-size-label" id="cropSizeLabel"></div>';
       this.cropSelection.dataset.handlesInited = '1';
     }
 
@@ -1438,6 +1438,16 @@ class Editor {
       this.cropSelection.style.top = (bounds.canvasOffsetY + b.y) + 'px';
       this.cropSelection.style.width = b.w + 'px';
       this.cropSelection.style.height = b.h + 'px';
+
+      // 左下角实时显示裁剪尺寸（图片像素）
+      const sizeLabel = document.getElementById('cropSizeLabel');
+      if (sizeLabel) {
+        const scaleX = this.canvas.width / Math.max(1, bounds.canvasW);
+        const scaleY = this.canvas.height / Math.max(1, bounds.canvasH);
+        const pxW = Math.max(1, Math.round(b.w * scaleX));
+        const pxH = Math.max(1, Math.round(b.h * scaleY));
+        sizeLabel.textContent = `${pxW} × ${pxH}`;
+      }
     };
 
     renderCropSelection();
