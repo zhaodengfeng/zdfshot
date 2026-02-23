@@ -1428,7 +1428,8 @@ class Editor {
 
     this.cropSelection.style.display = 'block';
     this.cropSelection.classList.add('active');
-    this.cropActions.classList.add('active');
+    // 操作按钮改为首轮框选完成后再显示，避免影响拖拽
+    this.cropActions.classList.remove('active');
     const cropHint2 = this.cropOverlay.querySelector('.crop-hint');
     if (cropHint2) cropHint2.style.display = 'none';
 
@@ -1516,6 +1517,10 @@ class Editor {
       const onMouseUp = () => {
         document.removeEventListener('mousemove', onMouseMove);
         document.removeEventListener('mouseup', onMouseUp);
+        const b = this._cropBoxCss;
+        if (b && b.w > minSize && b.h > minSize) {
+          this.cropActions.classList.add('active');
+        }
       };
 
       document.addEventListener('mousemove', onMouseMove);
