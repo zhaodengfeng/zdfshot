@@ -53,12 +53,13 @@ function startAreaSelection() {
   selectionOverlay.className = 'zdfsnap-overlay';
   selectionOverlay.innerHTML = `
     <div class="zdfsnap-hint">拖动选择截图区域，按 ESC 取消</div>
-    <div class="zdfsnap-selection"></div>
+    <div class="zdfsnap-selection"><div class="zdfsnap-size">0 × 0</div></div>
   `;
   document.body.appendChild(selectionOverlay);
 
   selectionBox = selectionOverlay.querySelector('.zdfsnap-selection');
   const hint = selectionOverlay.querySelector('.zdfsnap-hint');
+  const sizeLabel = selectionOverlay.querySelector('.zdfsnap-size');
 
   selectionOverlay.addEventListener('mousedown', onMouseDown);
   document.addEventListener('mousemove', onMouseMove);
@@ -70,6 +71,8 @@ function startAreaSelection() {
     isSelecting = true;
     startX = e.clientX;
     startY = e.clientY;
+    endX = e.clientX;
+    endY = e.clientY;
     selectionBox.style.display = 'block';
     hint.style.display = 'none';
     updateSelectionBox();
@@ -119,6 +122,7 @@ function startAreaSelection() {
     selectionBox.style.top = top + 'px';
     selectionBox.style.width = width + 'px';
     selectionBox.style.height = height + 'px';
+    if (sizeLabel) sizeLabel.textContent = `${Math.round(width)} × ${Math.round(height)}`;
   }
 
   function cleanup() {
@@ -364,12 +368,13 @@ function startManualAreaScrollCapture() {
   selectionOverlay.className = 'zdfsnap-overlay';
   selectionOverlay.innerHTML = `
     <div class="zdfsnap-hint">拖动选择滚动截图区域，按 ESC 取消</div>
-    <div class="zdfsnap-selection"></div>
+    <div class="zdfsnap-selection"><div class="zdfsnap-size">0 × 0</div></div>
   `;
   document.body.appendChild(selectionOverlay);
 
   selectionBox = selectionOverlay.querySelector('.zdfsnap-selection');
   const hint = selectionOverlay.querySelector('.zdfsnap-hint');
+  const sizeLabel = selectionOverlay.querySelector('.zdfsnap-size');
 
   selectionOverlay.addEventListener('mousedown', onMouseDown);
   document.addEventListener('mousemove', onMouseMove);
@@ -433,6 +438,7 @@ function startManualAreaScrollCapture() {
     selectionBox.style.top = top + 'px';
     selectionBox.style.width = width + 'px';
     selectionBox.style.height = height + 'px';
+    if (sizeLabel) sizeLabel.textContent = `${Math.round(width)} × ${Math.round(height)}`;
   }
 
   function cleanup() {

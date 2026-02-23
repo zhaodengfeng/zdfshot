@@ -1455,6 +1455,10 @@ class Editor {
     this._cropScrollHandler = () => renderCropSelection();
     this.canvasViewport.addEventListener('scroll', this._cropScrollHandler);
 
+    // 窗口尺寸变化时，裁剪框跟随画布实时重定位
+    this._cropResizeHandler = () => renderCropSelection();
+    window.addEventListener('resize', this._cropResizeHandler);
+
     this._cropMouseDownHandler = (e) => {
       const handle = e.target.closest('.crop-handle');
       const onSelection = e.target === this.cropSelection;
@@ -1616,6 +1620,10 @@ class Editor {
     if (this._cropScrollHandler) {
       this.canvasViewport.removeEventListener('scroll', this._cropScrollHandler);
       this._cropScrollHandler = null;
+    }
+    if (this._cropResizeHandler) {
+      window.removeEventListener('resize', this._cropResizeHandler);
+      this._cropResizeHandler = null;
     }
   }
 

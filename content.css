@@ -57,3 +57,16 @@
   bottom: -2px; right: -2px;
   border-width: 0 2px 2px 0;
 }
+
+.zdfsnap-size {
+  position: absolute;
+  left: 6px;
+  bottom: 6px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.58);
+  color: #fff;
+  font: 600 12px/1.2 -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  letter-spacing: .2px;
+  pointer-events: none;
+}
