@@ -1,6 +1,6 @@
 # ZDFShot
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/zhaodengfeng/zdfshot)
+[![Version](https://img.shields.io/badge/version-1.5.0-blue.svg)](https://github.com/zhaodengfeng/zdfshot)
 [![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
 [![Chrome Extension](https://img.shields.io/badge/chrome-extension-brightgreen.svg)](https://chrome.google.com/webstore)
 
@@ -35,6 +35,16 @@ A lightweight Chrome extension for capturing screenshots and annotating with eas
   - Dual themes (GitHub Dark/Light)
   - Keyboard shortcuts for all tools
 
+## Recent Updates (v1.5.0)
+
+- New **Area Scroll Capture** flow (auto scrolling + bottom completion capture)
+- Crop upgraded to **default full-image box + 8 handles** (4 corners + 4 edges)
+- Crop coordinate/scale fixes for zoomed or large images
+- Zoom controls moved to status bar for cleaner editing space
+- Text interaction updated: **single click to drag/select, double click to edit**
+- Unified quick capture shortcuts: **Win `Alt+Shift+S` / Mac `⌘+Shift+S`**
+- Packaging cleanup for store submission (removed debug logs and temp artifacts)
+
 ## Installation
 
 ### Developer Mode
@@ -54,7 +64,8 @@ A lightweight Chrome extension for capturing screenshots and annotating with eas
 
 | Shortcut | Action |
 |----------|--------|
-| `Alt + Shift + S` | Quick screenshot |
+| Win: `Alt + Shift + S` | Quick screenshot |
+| Mac: `⌘ + Shift + S` | Quick screenshot |
 
 ### Tool Shortcuts
 
@@ -78,9 +89,9 @@ A lightweight Chrome extension for capturing screenshots and annotating with eas
 
 | Shortcut | Action |
 |----------|--------|
-| Ctrl + Z | Undo |
-| Ctrl + Y / Ctrl+Shift+Z | Redo |
-| Ctrl + S | Save image |
+| Ctrl/Cmd + Z | Undo |
+| Ctrl/Cmd + Y or Ctrl/Cmd + Shift + Z | Redo |
+| Ctrl/Cmd + S | Save image |
 | ESC | Cancel current operation |
 
 ## Project Structure

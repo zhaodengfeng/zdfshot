@@ -13,11 +13,7 @@
     <header class="topbar">
       <div class="brand">
         <div class="logo-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="3" y="6" width="18" height="12" rx="2"/>
-            <circle cx="12" cy="12" r="3"/>
-            <circle cx="12" cy="12" r="1" fill="currentColor"/>
-          </svg>
+          <img src="icons/icon32.png" alt="ZDFShot" />
         </div>
         <span class="logo-text">ZDFShot</span>
       </div>
@@ -81,18 +77,25 @@
 
         <div class="tool-group">
           <button class="tool" data-tool="mosaic" data-i18n-title="titleMosaic">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <rect x="3" y="3" width="7" height="7"/>
-              <rect x="14" y="3" width="7" height="7"/>
-              <rect x="14" y="14" width="7" height="7"/>
-              <rect x="3" y="14" width="7" height="7"/>
+            <!-- 马赛克：3×3 像素格，深浅交错体现像素化 -->
+            <svg viewBox="0 0 24 24" fill="currentColor" stroke="none">
+              <rect x="2"  y="2"  width="6" height="6" opacity=".9"/>
+              <rect x="10" y="2"  width="6" height="6" opacity=".4"/>
+              <rect x="18" y="2"  width="4" height="6" opacity=".9"/>
+              <rect x="2"  y="10" width="6" height="6" opacity=".4"/>
+              <rect x="10" y="10" width="6" height="6" opacity=".9"/>
+              <rect x="18" y="10" width="4" height="6" opacity=".4"/>
+              <rect x="2"  y="18" width="6" height="4" opacity=".9"/>
+              <rect x="10" y="18" width="6" height="4" opacity=".4"/>
+              <rect x="18" y="18" width="4" height="4" opacity=".9"/>
             </svg>
           </button>
           <button class="tool" data-tool="blur" data-i18n-title="titleBlur">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-              <circle cx="12" cy="12" r="9" opacity="0.3"/>
-              <circle cx="12" cy="12" r="6" opacity="0.5"/>
-              <circle cx="12" cy="12" r="3" opacity="0.8"/>
+            <!-- 模糊：三组波浪线，视觉上表达扩散/模糊感 -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+              <path d="M2 7c2.5-2.5 5-2.5 7.5 0S15 9.5 17.5 7 20 4.5 22 7"/>
+              <path d="M2 12c2.5-2.5 5-2.5 7.5 0S15 14.5 17.5 12 20 9.5 22 12"/>
+              <path d="M2 17c2.5-2.5 5-2.5 7.5 0S15 19.5 17.5 17 20 14.5 22 17"/>
             </svg>
           </button>
         </div>
@@ -122,24 +125,24 @@
         </div>
 
         <div class="width-slider">
-          <input type="range" id="strokeWidth" min="1" max="20" value="3">
-          <span class="width-value">3</span>
+          <input type="range" id="strokeWidth" min="1" max="72" value="20">
+          <span class="width-value">20</span>
+        </div>
+
+        <div class="font-wrap">
+          <select id="fontFamily" title="字体">
+            <option value="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans SC', Roboto, sans-serif">系统默认</option>
+            <option value="'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif">思源黑体</option>
+            <option value="'PingFang SC', 'Microsoft YaHei', sans-serif">苹方/雅黑</option>
+            <option value="Georgia, 'Times New Roman', serif">Serif</option>
+            <option value="'Courier New', Consolas, monospace">Monospace</option>
+          </select>
         </div>
       </div>
 
       <div class="actions">
-        <button class="lang-btn" id="langToggle" title="切换语言">
-          <span id="langLabel">中</span>
-        </button>
-
-        <button class="theme-btn" id="themeToggle" title="切换主题">
-          <svg class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-            <circle cx="12" cy="12" r="4"/>
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
-          </svg>
-          <svg class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="display:none">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-          </svg>
+        <button class="lang-btn" id="langToggle" title="Switch Language / 切换语言">
+          <span id="langLabel">中/En</span>
         </button>
 
         <button class="icon-btn" id="undoBtn" data-i18n-title="undoTitle">
@@ -162,7 +165,13 @@
 
         <div class="divider"></div>
 
-        <button class="btn btn-ghost" id="cropBtn" data-i18n="crop"></button>
+        <button class="btn btn-ghost" id="cropBtn" title="裁剪图片">
+          <!-- 裁剪标准图标：两个 L 形把手 -->
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="vertical-align:-2px;margin-right:4px">
+            <path d="M5 3v15a1 1 0 0 0 1 1h15"/>
+            <path d="M3 5h15a1 1 0 0 1 1 1v15"/>
+          </svg>裁剪
+        </button>
         <button class="btn btn-ghost" id="clearBtn" data-i18n="clear"></button>
         <button class="btn btn-ghost" id="copyBtn" data-i18n="copy"></button>
         <button class="btn btn-primary" id="downloadBtn" data-i18n="save"></button>
@@ -180,12 +189,10 @@
             <button class="btn btn-primary" id="cropConfirm" data-i18n="cropConfirm"></button>
           </div>
         </div>
-        <canvas id="editorCanvas"></canvas>
-        <div class="text-float" id="textInputLayer">
-          <input type="text" id="textInput" data-i18n-placeholder="textPlaceholder">
-          <div class="text-btns">
-            <button id="textConfirm">✓</button>
-            <button id="textCancel">✕</button>
+        <!-- 画布视口：支持缩放和平移 -->
+        <div class="canvas-viewport" id="canvasViewport">
+          <div class="canvas-transform" id="canvasTransform">
+            <canvas id="editorCanvas"></canvas>
           </div>
         </div>
       </div>
@@ -202,6 +209,16 @@
       </aside>
     </main>
 
+    <!-- 文字输入浮层 - 移到body级别使用fixed定位 -->
+    <div class="text-float" id="textInputLayer">
+      <div class="text-drag-handle" id="textDragHandle">✥ 文本编辑</div>
+      <textarea id="textInput" data-i18n-placeholder="textPlaceholder" rows="3"></textarea>
+      <div class="text-btns">
+        <button id="textConfirm">✓</button>
+        <button id="textCancel">✕</button>
+      </div>
+    </div>
+
     <!-- 底部状态栏 -->
     <footer class="statusbar">
       <div class="info">
@@ -209,7 +226,27 @@
         <span class="sep">|</span>
         <span id="mousePos">0, 0</span>
       </div>
-      <div class="shortcuts" data-i18n="shortcuts"></div>
+      <div class="shortcuts">
+        <span id="shortcutHint" data-i18n="shortcuts"></span>
+        <div class="zoom-controls zoom-controls-inline">
+          <button class="zoom-btn" id="zoomOut" title="缩小">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14"/>
+            </svg>
+          </button>
+          <span class="zoom-value" id="zoomValue">100%</span>
+          <button class="zoom-btn" id="zoomIn" title="放大">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12h14"/>
+            </svg>
+          </button>
+          <button class="zoom-btn" id="zoomFit" title="适应窗口">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+            </svg>
+          </button>
+        </div>
+      </div>
     </footer>
   </div>
 

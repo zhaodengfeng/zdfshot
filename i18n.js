@@ -78,9 +78,11 @@ const i18n = {
     // popup
     captureVisible: '截图可见区域',
     captureArea: '选择区域截图',
-    captureFull: '整页截图',
-    popupHint: 'Alt + Shift + S 快速截图',
-    tagline: '截图与标注'
+    captureFull: '当前整页截图',
+    captureScroll: '页面滚动截图',
+    captureAreaScroll: '区域滚动截图',
+    popupHint: 'Win: Alt + Shift + S / Mac: ⌘ + Shift + S',
+    tagline: '简单截图标注'
   },
   
   en: {
@@ -162,8 +164,10 @@ const i18n = {
     captureVisible: 'Capture Visible',
     captureArea: 'Capture Area',
     captureFull: 'Capture Full Page',
-    popupHint: 'Alt + Shift + S for quick capture',
-    tagline: 'Screenshot & Annotation'
+    captureScroll: 'Page Scroll Capture',
+    captureAreaScroll: 'Area Scroll Capture',
+    popupHint: 'Shortcut: Win Alt+Shift+S / Mac ⌘+Shift+S',
+    tagline: 'Simple Screenshot Annotation'
   }
 };
 
@@ -184,14 +188,12 @@ function setLanguage(lang) {
   }
 }
 
-// 检测浏览器语言
+// 检测语言 - 默认中文，用户可手动切换
 function detectLanguage() {
   const saved = localStorage.getItem('zdfshot_lang');
   if (saved && i18n[saved]) return saved;
-  
-  const browserLang = navigator.language.toLowerCase();
-  if (browserLang.startsWith('zh')) return 'zh';
-  return 'en';
+  // 默认中文
+  return 'zh';
 }
 
 // 应用翻译到 DOM
@@ -200,8 +202,8 @@ function applyTranslations() {
     const key = el.dataset.i18n;
     if (key) {
       const text = t(key);
-      if (el.tagName === 'INPUT' && el.type !== 'text' || el.tagName === 'TEXTAREA') {
-        // 对于非文本输入，使用 placeholder
+      if ((el.tagName === 'INPUT' && el.type !== 'text') || el.tagName === 'TEXTAREA') {
+        // 对于输入组件，优先处理 placeholder
         if (el.hasAttribute('data-i18n-placeholder')) {
           el.placeholder = t(el.dataset.i18nPlaceholder);
         }
@@ -228,6 +230,9 @@ function initI18n() {
   currentLang = detectLanguage();
   applyTranslations();
 }
+
+// 页面加载时自动初始化
+document.addEventListener('DOMContentLoaded', initI18n);
 
 // 导出
 if (typeof module !== 'undefined' && module.exports) {

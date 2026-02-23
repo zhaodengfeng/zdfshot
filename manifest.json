@@ -1,13 +1,14 @@
 {
   "manifest_version": 3,
-  "name": "ZDFShot - 截图与标注",
-  "version": "1.0.0",
+  "name": "ZDFShot - 简单截图标注",
+  "version": "1.5.0",
   "description": "快速截图 + 便捷标注编辑工具",
   "permissions": [
     "activeTab",
     "storage",
     "downloads",
-    "clipboardWrite"
+    "clipboardWrite",
+    "scripting"
   ],
   "host_permissions": [
     "<all_urls>"
@@ -40,14 +41,15 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["editor.html", "editor.js", "editor.css"],
+      "resources": ["editor.html", "editor.js", "editor.css", "icons/*"],
       "matches": ["<all_urls>"]
     }
   ],
   "commands": {
     "take-screenshot": {
       "suggested_key": {
-        "default": "Alt+Shift+S"
+        "default": "Alt+Shift+S",
+        "mac": "Command+Shift+S"
       },
       "description": "快速截图"
     }
