@@ -27,7 +27,6 @@ ZDFShot is a screenshot and annotation extension. We design it with a simple pri
 
 - `activeTab`: capture the active tab when user requests
 - `storage`: save temporary screenshot data and preferences
-- `downloads`: export images to local files
 - `clipboardWrite`: copy image to clipboard
 - `scripting`: inject capture/edit logic into the current page
 

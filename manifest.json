@@ -1,12 +1,11 @@
 {
   "manifest_version": 3,
   "name": "ZDFShot - 简单截图标注",
-  "version": "1.5.6",
+  "version": "1.5.7",
   "description": "快速截图 + 便捷标注编辑工具",
   "permissions": [
     "activeTab",
     "storage",
-    "downloads",
     "clipboardWrite",
     "scripting"
   ],
