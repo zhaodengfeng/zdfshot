@@ -2,7 +2,7 @@
 
 [![Version](https://img.shields.io/badge/version-1.5.0-blue.svg)](https://github.com/zhaodengfeng/zdfshot)
 [![License](https://img.shields.io/badge/license-GPL--3.0-blue.svg)](LICENSE)
-[![Chrome Extension](https://img.shields.io/badge/chrome-extension-brightgreen.svg)](https://chrome.google.com/webstore)
+[![Chrome Extension](https://img.shields.io/badge/chrome%20web%20store-install-brightgreen.svg)](https://chromewebstore.google.com/detail/fpomdneocghehdjbpjpidpjnoljliini)
 
 A lightweight Chrome extension for capturing screenshots and annotating with ease.
 
@@ -56,7 +56,9 @@ A lightweight Chrome extension for capturing screenshots and annotating with eas
 
 ### From Chrome Web Store
 
-*Coming soon*
+[![Install from Chrome Web Store](https://img.shields.io/badge/chrome%20web%20store-install-blue?style=for-the-badge&logo=googlechrome)](https://chromewebstore.google.com/detail/fpomdneocghehdjbpjpidpjnoljliini)
+
+Or visit: https://chromewebstore.google.com/detail/fpomdneocghehdjbpjpidpjnoljliini
 
 ## Usage
 
